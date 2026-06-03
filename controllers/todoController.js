@@ -27,3 +27,12 @@ exports.deleteTodo = async (req, res) => {
     await Todo.findOneAndDelete({ _id: req.params.id, userId: req.userId });
     res.json({ message: "Tâche supprimée" });
 };
+
+exports.getOneTask = async (req, res) => {
+    await Todo.findOne({ _id: req.params.id, userId: req.userId })
+        .then((todo) => {
+            if (!todo) return res.status(404).json({ message: "Tâche non trouvée" });
+            res.json(todo);
+        })
+        .catch(() => res.status(500).json({ message: "Erreur serveur" }));
+}
