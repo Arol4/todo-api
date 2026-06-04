@@ -15,7 +15,7 @@ exports.createTodo = async (req, res) => {
 exports.updateTodo = async (req, res) => {
     try {
         const { id } = req.params;
-        const todo = await Todo.findByIdAndUpdate(id, req.body, { new: true });
+        const todo = await Todo.findByIdAndUpdate(id, req.body, { returnDocument: "after" });
         if (!todo) return res.status(404).json({ message: "Tâche non trouvée" });
         res.json({ message: "Tâche mise à jour avec succès", todo });
     } catch (error) {
