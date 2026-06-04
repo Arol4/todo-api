@@ -13,5 +13,5 @@
     JWT_SECRET=motdepasseultrasecret
     PORT=5000
 ```
-4. Dans ce même répertoire, lancer la commande ``npm start``;
+4. Dans ce même répertoire, lancer la commande ``node index.js``;
 L'api local est accessible avec l'adresse *http://localhost:5000*.
